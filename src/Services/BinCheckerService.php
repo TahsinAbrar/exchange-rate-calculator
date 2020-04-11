@@ -4,7 +4,7 @@
 namespace ExchangeRateCalculator\Services;
 
 
-class BinCheckerService
+class BinCheckerService implements BinCheckerInterface
 {
     /**
      * @property string baseUrl
@@ -17,7 +17,7 @@ class BinCheckerService
      */
     public function __construct()
     {
-        $this->baseUrl = 'https://lookup.binlist.net';
+        $this->setBaseUrl('https://lookup.binlist.net');
     }
 
     /**
@@ -26,7 +26,7 @@ class BinCheckerService
      */
     public function init($bin)
     {
-        $url = $this->baseUrl . '/' . $bin;
+        $url = $this->getBaseUrl() . '/' . $bin;
         $response = callToApi($url,'GET');
         $response = json_decode($response, true);
 
@@ -72,5 +72,15 @@ class BinCheckerService
     public function setAlpha2Code($alpha2Code)
     {
         $this->alpha2Code = $alpha2Code;
+    }
+
+    public function getBaseUrl()
+    {
+        return $this->baseUrl;
+    }
+
+    public function setBaseUrl($url)
+    {
+        $this->baseUrl = $url;
     }
 }

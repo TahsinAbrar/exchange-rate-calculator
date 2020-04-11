@@ -4,7 +4,7 @@
 namespace ExchangeRateCalculator\Services;
 
 
-class ExchangeRateCheckerService
+class ExchangeRateCheckerService implements ExchangeRateCheckerInterface
 {
     /**
      * @property string baseUrl
@@ -17,7 +17,7 @@ class ExchangeRateCheckerService
      */
     public function __construct()
     {
-        $this->baseUrl = 'https://api.exchangeratesapi.io/latest';
+        $this->setBaseUrl('https://api.exchangeratesapi.io/latest');
     }
 
     /**
@@ -25,7 +25,7 @@ class ExchangeRateCheckerService
      */
     public function initiate()
     {
-        $request = callToApi($this->baseUrl,'GET');
+        $request = callToApi($this->getBaseUrl(),'GET');
         $response = json_decode($request, true);
 
         if (!($response && isset($response['rates']))) {
@@ -76,5 +76,15 @@ class ExchangeRateCheckerService
     protected function setExchangeRatesList(array $rates)
     {
         $this->exchangeRates = $rates;
+    }
+
+    public function getBaseUrl()
+    {
+        return $this->baseUrl;
+    }
+
+    public function setBaseUrl($url)
+    {
+        $this->baseUrl = $url;
     }
 }
