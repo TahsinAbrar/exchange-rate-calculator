@@ -1,13 +1,13 @@
 <?php
 
 
-namespace App\Controllers;
+namespace ExchangeRateCalculator;
 
 
-use App\Services\BinCheckerService;
-use App\Services\ExchangeRateCheckerService;
+use ExchangeRateCalculator\Services\BinCheckerService;
+use ExchangeRateCalculator\Services\ExchangeRateCheckerService;
 
-class ExchangeRateController
+class ExchangeRateCalc
 {
     private $filePath;
     private $exchangeRateService;

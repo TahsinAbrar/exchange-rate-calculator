@@ -3,7 +3,7 @@
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
-use App\Services\ExchangeRateCheckerService;
+use ExchangeRateCalculator\Services\ExchangeRateCheckerService;
 
 class ExchangeRateCheckerServiceTest extends TestCase
 {

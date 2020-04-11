@@ -3,7 +3,7 @@
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
-use App\Services\BinCheckerService;
+use ExchangeRateCalculator\Services\BinCheckerService;
 
 class BinCheckerServiceTest extends TestCase
 {

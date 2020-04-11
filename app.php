@@ -2,11 +2,11 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-use \App\Controllers\ExchangeRateController;
+use \ExchangeRateCalculator\ExchangeRateCalc;
 
 try {
 
-    $exchangeRateObj = new ExchangeRateController();
+    $exchangeRateObj = new ExchangeRateCalc();
     $exchangeRateObj->setInputFile((array) $argv);
     $exchangeRateObj->initiateProcess();
 

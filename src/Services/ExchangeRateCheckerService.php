@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Services;
+namespace ExchangeRateCalculator\Services;
 
 
 class ExchangeRateCheckerService

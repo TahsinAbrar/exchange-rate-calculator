@@ -65,7 +65,7 @@ if (!function_exists('writeToLog')) {
                 '-------------------------' . PHP_EOL;
 
             //Save string to log, use FILE_APPEND to append.
-            file_put_contents(__DIR__ . '/project.log', $log, FILE_APPEND);
+            file_put_contents(__DIR__ . '/logs/project.log', $log, FILE_APPEND);
         } catch (\Exception $exception) {
             // need to write exception handling code
         }

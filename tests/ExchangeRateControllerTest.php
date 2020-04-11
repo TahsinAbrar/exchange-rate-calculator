@@ -3,7 +3,7 @@
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
-use App\Controllers\ExchangeRateController;
+use ExchangeRateCalculator\ExchangeRateCalc;
 
 class ExchangeRateControllerTest extends TestCase
 {
@@ -19,7 +19,7 @@ class ExchangeRateControllerTest extends TestCase
         $inputs = [
             __DIR__ .'/../app.php',
         ];
-        $exchangeRate = new ExchangeRateController();
+        $exchangeRate = new ExchangeRateCalc();
 
         $exchangeRate->setInputFile($inputs);
 
@@ -34,7 +34,7 @@ class ExchangeRateControllerTest extends TestCase
 
     public function testSetInputFile()
     {
-        $exchangeRate = new ExchangeRateController();
+        $exchangeRate = new ExchangeRateCalc();
 
         $sampleInputFilePath = __DIR__ .'/../input.txt';
         $inputs = [
@@ -56,7 +56,7 @@ class ExchangeRateControllerTest extends TestCase
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage("File is required or cannot be empty.");
 
-        $exchangeRate = new ExchangeRateController();
+        $exchangeRate = new ExchangeRateCalc();
         $exchangeRate->readFileData();
     }
 
@@ -69,7 +69,7 @@ class ExchangeRateControllerTest extends TestCase
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage("File is required or cannot be empty.");
 
-        $exchangeRate = new ExchangeRateController();
+        $exchangeRate = new ExchangeRateCalc();
         $sampleInputFilePath = __DIR__ .'/sample/input2.txt';
 
         $inputs = [
@@ -97,7 +97,7 @@ class ExchangeRateControllerTest extends TestCase
 
     public function testCalculateMethod()
     {
-        $exchangeRate = new ExchangeRateController();
+        $exchangeRate = new ExchangeRateCalc();
         //{"bin":"516793","amount":"50.00","currency":"USD"}
         $data = [
             'bin' =>'516793',
